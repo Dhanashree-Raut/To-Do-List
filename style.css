@@ -1,0 +1,11 @@
+.validation{
+    color: red;
+}
+
+.save-note-loader{
+    display: none;
+}
+
+.del-note-loader{
+    display: none;
+}

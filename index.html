@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <!--  -->
+    
+    <!--  Add note Module -->
+    <div class="modal fade" id="add-note-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Notes</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                <div class="mb-3">
+                    <label for="note-title" class="col-form-label">Title:</label>
+                    <input type="text" class="form-control" id="note-title">
+                </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Note:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                <p class="validation"></p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="save-note-loader spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="add-note" type="button" class="btn btn-primary">Save</button>
+
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Note  -->
+    <!-- Modal -->
+    <div class="modal fade" id="delete-note-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Notes</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            This action cannot be reverted. Do You what to delete all the notes?
+        </div>
+        <div class="modal-footer">
+            <div class="del-note-loader spinner-border text-danger" role="status">
+                    <span class="visually-hidden">Loading...</span>
+            </div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button id="delete-notes-action" type="button" class="btn delete-notes-action btn-danger">Delete</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="notes.html">Notes</a>
+                </li>
+                
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+     <div class="container mt-4">
+            <div class="jumbotron">
+                <h1 class="display-4">Hello, User 👋</h1>
+
+                <p class="lead">
+                Welcome to your personal space — a calm corner where you can capture
+                thoughts, reminders, and small ideas as they come.
+                </p>
+
+                <hr class="my-4">
+
+                <p>
+                Use this space to keep track of daily tasks, important notes, or creative
+                thoughts. Everything here is designed to stay simple, distraction-free,
+                and easy to scan at a glance.
+                </p>
+
+                <h5 class="mt-4">✨ What you can do here</h5>
+                <ul>
+                <li>Write quick notes or reminders</li>
+                <li>Organize small daily tasks</li>
+                <li>Keep ideas in one cozy place</li>
+                </ul>
+
+                <p class="mt-3 text-muted">
+                Start small. Stay consistent. Build clarity one note at a time.
+                </p>
+
+                <button type="button" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#add-note-popup" data-bs-whatever="@mdo">+ Add Note </button>
+
+                <button type="button" class="btn btn-danger btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#delete-note-popup" data-bs-whatever="@mdo">Delete All Notes</button>
+
+                
+            </div>
+        </div>
+
+
+        <div class="container">
+             <div class="home-notes show-data row  d-flex justify-content-center">
+        </div>
+        </div>
+       
+      
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+</body>
+</html>
